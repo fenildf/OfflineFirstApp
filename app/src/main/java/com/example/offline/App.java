@@ -25,13 +25,14 @@ public class App extends Application implements HasActivityInjector {
             Timber.plant(new Timber.DebugTree());
         }
 
+        JobManagerFactory.getJobManager(this);
+
         DaggerAppComponent
                 .builder()
                 .application(this)
                 .build()
                 .inject(this);
 
-        JobManagerFactory.getJobManager(this);
     }
 
     @Override
